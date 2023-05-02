@@ -1,0 +1,102 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] Web Shop AAA </title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/EntityFrameWork02.styles.css" asp-append-version="true" />
+</head>
+<body>
+    <div class="container-fluid overflow-hidden">
+        <div class="row vh-100 overflow-auto">
+            @*@if (User.Identity.IsAuthenticated)
+            {*@
+                <div class="col-12 col-sm-3 col-xl-2 px-sm-2 px-0 bg-dark d-flex sticky-top">
+                    <div class="d-flex flex-sm-column flex-row flex-grow-1 align-items-center align-items-sm-start px-3 pt-2 text-white">
+                        <a href="/" class="d-flex align-items-center pb-sm-3 mb-md-0 me-md-auto text-white text-decoration-none">
+                            <span class="fs-5">B<span class="d-none d-sm-inline">rand</span></span>
+                        </a>
+
+                        <ul class="nav nav-pills flex-sm-column flex-row flex-nowrap flex-shrink-1 flex-sm-grow-0 flex-grow-1 mb-sm-auto mb-0 justify-content-center align-items-center align-items-sm-start" id="menu">
+                            <li>
+                                <a asp-controller="Home" asp-action="Index" class="nav-link px-sm-0 px-2">
+                                    <i class="fs-5 bi-speedometer2"></i><span class="ms-1 d-none d-sm-inline">Dashboard</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a asp-controller="Category" asp-action="Index" class="nav-link px-sm-0 px-2">
+                                    <i class="fs-5 bi-grid"></i><span class="ms-1 d-none d-sm-inline">Categorys</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a asp-controller="Product" asp-action="Index" class="nav-link px-sm-0 px-2">
+                                    <i class="fs-5 bi-grid"></i><span class="ms-1 d-none d-sm-inline">Products</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a asp-controller="Order" asp-action="Index" class="nav-link px-sm-0 px-2">
+                                    <i class="fs-5 bi-table"></i><span class="ms-1 d-none d-sm-inline">Orders</span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a asp-controller="User" asp-action="Index" class="nav-link px-sm-0 px-2">
+                                    <i class="fs-5 bi-people"></i><span class="ms-1 d-none d-sm-inline">Users</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a asp-controller="Role" asp-action="Index" class="nav-link px-sm-0 px-2">
+                                    <i class="fs-5 bi-people"></i><span class="ms-1 d-none d-sm-inline">Roles</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col d-flex flex-column h-sm-100">
+                    <header class="row bg-dark sticky-top">
+                        <nav class="navbar bg-body-tertiary">
+
+                            <div class="container-fluid justify-content-end">
+                                <ul class="nav justify-content-end">
+                                    <li class="nav-item">
+                                        <a id="manage" class="nav-link text-white-50" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">terst</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <form id="logoutForm" class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                                            <button id="logout" type="submit" class="nav-link btn btn-link text-white-50"><i class="fa-solid fa-arrow-right-from-bracket"></i>Logout</button>
+                                        </form>
+                                    </li>
+                                </ul>
+
+                            </div>
+
+                        </nav>
+                    </header>
+                    <main class="row overflow-auto container-fluid">
+                        @RenderBody()
+                    </main>
+                    <footer class="row bg-light py-4 mt-auto">
+                        <div class="col"> &copy; @DateTime.Now.Year - Web Shop AAA -   </div>
+                    </footer>
+                </div>
+            @*}
+            else
+            {*@
+                @RenderBody()
+           @* }*@
+        </div>
+    </div>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
+<li class="nav-item">
+
+</li>
+<li class="nav-item">
+
+</li>

@@ -1,0 +1,38 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model CategoryList
+
+<div class="row justify-content-center pt-3">
+    <div class="col-md-8">
+        <div class="card justify-content-center">
+            <div class="card-header"><h1>Edit Category</h1></div>
+
+            <div class="card-body ">
+                <form asp-action="Edit" method="post" asp-route-id="@Model.Id">
+                    <input asp-for="Id" type="hidden" />
+                    <div class="row mb-3">
+                        <label asp-for="Name" class="col-md-4 col-form-label text-md-end"></label>
+                        <div class="col-md-6">
+                            <input asp-for="Name" class="form-control" value="@Model.Name" />
+                            <span asp-validation-for="Name" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <label asp-for="Description" class="col-md-4 col-form-label text-md-end"></label>
+                        <div class="col-md-6">
+                            <input asp-for="Description" class="form-control" value="@Model.Description" />
+                            <span asp-validation-for="Description" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="row mb-0">
+                        <div class="col-md-6 offset-md-4">
+                            <input type="submit" class="btn btn-success" value="Save" />
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

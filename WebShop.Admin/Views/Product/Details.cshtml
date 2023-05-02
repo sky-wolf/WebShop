@@ -1,0 +1,20 @@
+﻿@model ProductList
+
+
+<div class="row justify-content-center pt-3">
+    <div class="col-md-8">
+        <div class="card justify-content-center">
+            <div class="card-header"><h1> @Model.Name Details</h1></div>
+
+            <div class="card-body ">
+                <div class="row">
+                    <div class="col"><p>ID: @Model.Id</p></div>
+                    <div class="col">Company: @Model.Name</div>
+                    <div class="col">Category: @Model.Category)</div>
+                    <div class="col">Quantity: @Model.Quantity</div>
+                </div>
+                <div class="row"><p>Desc: @Model.Description</p></div>
+            </div>
+        </div>
+    </div>
+</div>        
