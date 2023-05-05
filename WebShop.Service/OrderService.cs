@@ -45,7 +45,7 @@ namespace WebShop.Service
 
         public async Task<Order> Save(Order order)
         {
-            if (order.Id != null)
+            if (order.Id == 0)
             {
                 order.CreateAt = DateTime.Now;
                 _context.OrderDetails.Add(order);

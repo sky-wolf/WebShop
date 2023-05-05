@@ -52,7 +52,7 @@ namespace WebShop.Admin.Controllers
         // POST: ProductController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(ProductList product, int cat)
+        public async Task<ActionResult> Create(ProductList product, int cat)
         {
             ModelState.Remove("Category");
             if (ModelState.IsValid)
@@ -68,7 +68,7 @@ namespace WebShop.Admin.Controllers
                     pro.CreateAt = date;
                     pro.ModifiedAt = date;
 
-                    _productRepository.Save(pro);
+                    await _productRepository.Save(pro);
                     return RedirectToAction(nameof(Index));
                 }
                 catch
@@ -91,8 +91,9 @@ namespace WebShop.Admin.Controllers
         // POST: ProductController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, ProductList product)
+        public async Task<ActionResult> Edit(int cate, ProductList product)
         {
+            ProductList list;
             ModelState.Remove("Category");
             if (ModelState.IsValid)
             {
@@ -100,13 +101,14 @@ namespace WebShop.Admin.Controllers
 
                 if(pro != null)
                 {
-                    var cat = _categoryRepository.GetById(id);
+                    var cat = _categoryRepository.GetById(cate);
 
                     if(pro.Category.Id != cat.Id)
                     {
                         pro.Category = cat;
                     }
-                    _productRepository.Save(pro);
+                    await _productRepository.Save(pro);
+                    return RedirectToAction(nameof(Index));
                 }
             }
             ViewBag.Category = new SelectList(_categoryRepository.GetList(), "Id", "Name");

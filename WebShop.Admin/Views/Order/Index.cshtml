@@ -1,0 +1,53 @@
+﻿@model List<Order>
+
+<div class="row justify-content-center pt-3">
+    <div class="col">
+        <div class="card justify-content-center">
+            <div class="card-header"><h1>Orders</h1></div>
+
+            <div class="card-body ">
+                <a asp-action="Test" class="btn btn-primary">Test Order</a>
+                <hr />
+                @if (Model.Count != 0)
+                {
+                    <table class="table table-dark table-striped">
+                        <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>Picked</th>
+                                <th>Total</th>
+                                <th>Payment</th>
+                                <th></th>
+                                <th>Create At</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>@item.Id</td>
+                                    <td>@item.Status</td>
+                                    <td>@item.Total</td>
+                                    <td>@item.Payment</td>
+                                    <td>
+                                        @if (item.Status != true)
+                                        {
+                                                <a asp-action="Details" asp-route-Id="@item.Id" class="btn btn-success">Pick List</a>
+                                        }
+                                        else
+                                        {
+                                                    <a class="btn btn-success disabled">Pick List</a>
+                                        }
+                                        <a asp-action="Details" asp-route-Id="@item.Id" class="btn btn-info">Details</a>
+                                        <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">Delete</a>
+                                    </td>
+                                    <td>@item.CreateAt</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                }
+            </div>
+        </div>
+    </div>
+</div>

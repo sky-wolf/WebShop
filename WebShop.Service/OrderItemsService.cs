@@ -25,9 +25,21 @@ namespace WebShop.Service
 
         public async Task Insert(OrderItems orderItems, Order order)
         {
-            if (orderItems != null || order != null)
+            if (orderItems != null)
             {
-               _context.OrderItems.Add(orderItems);
+                if(orderItems.OrderId != null)
+                {
+                    _context.OrderItems.AddAsync(orderItems);
+                }
+            }
+            await _context.SaveChangesAsync();
+        }
+        public async Task Delete(int id)
+        {
+            var delItem = _context.OrderItems.Where(x => x.OrderId == id);
+            if (delItem != null)
+            {
+                _context.OrderItems.RemoveRange(delItem);
             }
             await _context.SaveChangesAsync();
         }

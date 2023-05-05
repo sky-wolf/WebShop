@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WebShop.Data;
 
@@ -11,9 +12,10 @@ using WebShop.Data;
 namespace WebShop.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230504144040_addproductnameinitems")]
+    partial class addproductnameinitems
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -51,15 +53,15 @@ namespace WebShop.Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "491f1e07-97a3-4fc6-9ac2-24d1db9d917d",
-                            ConcurrencyStamp = "4fc94176-2148-4304-b083-a7f32f0babca",
+                            Id = "c1894c02-4516-484d-9d06-7fc9b912cb28",
+                            ConcurrencyStamp = "94b152f3-818c-4202-8423-33ee5fd8bbc4",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
-                            Id = "4b2e9e97-2374-4dad-acd3-2e3bbba0d35d",
-                            ConcurrencyStamp = "ba88a3a2-6d41-4775-a7b9-f411fc529053",
+                            Id = "327efdf8-ebc1-4652-bf85-ede67947990b",
+                            ConcurrencyStamp = "add6d83a-2897-4ad9-b2d3-88ea8e7ef1a1",
                             Name = "User",
                             NormalizedName = "USER"
                         });
@@ -156,8 +158,8 @@ namespace WebShop.Data.Migrations
                     b.HasData(
                         new
                         {
-                            UserId = "c79a063c-8a2f-43e0-b7ed-0a6d91452120",
-                            RoleId = "491f1e07-97a3-4fc6-9ac2-24d1db9d917d"
+                            UserId = "a0dd580c-30d5-493f-820e-e47de4dfdadf",
+                            RoleId = "c1894c02-4516-484d-9d06-7fc9b912cb28"
                         });
                 });
 
@@ -249,17 +251,17 @@ namespace WebShop.Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "c79a063c-8a2f-43e0-b7ed-0a6d91452120",
+                            Id = "a0dd580c-30d5-493f-820e-e47de4dfdadf",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "2a601e6c-3288-4590-a535-e505ea9a7f9d",
+                            ConcurrencyStamp = "c060800f-cadc-49c1-928c-754e2cf802dc",
                             Email = "Admin@admin.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@ADMIN.COM",
                             NormalizedUserName = "ADMIN@ADMIN.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEG7K3vNjKfwCmb+xUS0y+qCD1ptvHoCRMLyMCu5U2Yki+7WpNrmq0WGb16nGn3HTtg==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEEV4oN3IdAPJoXeo82pC5fR3gs344feubcIcnY8Zur8LfTQ1mgwIbh/7Xn2rvMjiGQ==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "33f02034-1323-4cf0-956e-e21dc16186b6",
+                            SecurityStamp = "6c94d485-3b64-4f48-a5e6-a02824acc855",
                             TwoFactorEnabled = false,
                             UserName = "Admin@admin.com"
                         });
@@ -334,9 +336,6 @@ namespace WebShop.Data.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<int>("APrice")
-                        .HasColumnType("int");
 
                     b.Property<DateTime>("CreateAt")
                         .HasColumnType("datetime2");

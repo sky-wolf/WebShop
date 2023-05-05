@@ -6,5 +6,6 @@ namespace WebShop.Data.Implementation
     {
         List<OrderItems> GetListByOrder(int id);
         Task Insert(OrderItems orderItems, Order order);
+        Task Delete(int id);
     }
 }
