@@ -6,9 +6,12 @@ using System.Security.Claims;
 using WebShop.Data.Models;
 using System.Xml;
 using WebShop.Admin.ViewModels.Orders;
+using Microsoft.AspNetCore.Authorization;
+using System.Data;
 
 namespace WebShop.Admin.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class OrderController : Controller
     {
         private readonly IOrderRepository _orderRepository;

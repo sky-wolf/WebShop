@@ -1,9 +1,12 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using System.Data;
 using WebShop.Data.Models;
 
 namespace WebShop.Admin.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class UserController : Controller
     {
         readonly RoleManager<IdentityRole> _roleManager;
@@ -17,6 +20,7 @@ namespace WebShop.Admin.Controllers
 
         public IActionResult Index()
         {
+            ViewBag.Count = _userManager.Users.Count();
             return View(_userManager.Users);
         }
 

@@ -1,4 +1,8 @@
-﻿<!DOCTYPE html>
+﻿@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+@inject RoleManager<IdentityRole> RoleManager
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -11,8 +15,8 @@
 <body>
     <div class="container-fluid overflow-hidden">
         <div class="row vh-100 overflow-auto">
-            @*@if (User.Identity.IsAuthenticated)
-            {*@
+            @if (User.Identity.IsAuthenticated)
+            {
                 <div class="col-12 col-sm-3 col-xl-2 px-sm-2 px-0 bg-dark d-flex sticky-top">
                     <div class="d-flex flex-sm-column flex-row flex-grow-1 align-items-center align-items-sm-start px-3 pt-2 text-white">
                         <a href="/" class="d-flex align-items-center pb-sm-3 mb-md-0 me-md-auto text-white text-decoration-none">
@@ -81,11 +85,11 @@
                         <div class="col"> &copy; @DateTime.Now.Year - Web Shop AAA -   </div>
                     </footer>
                 </div>
-            @*}
+            }
             else
-            {*@
+            {
                 @RenderBody()
-           @* }*@
+            }
         </div>
     </div>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
@@ -94,9 +98,3 @@
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
-<li class="nav-item">
-
-</li>
-<li class="nav-item">
-
-</li>

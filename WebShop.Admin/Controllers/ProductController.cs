@@ -1,7 +1,9 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using System.Data;
 using WebShop.Admin.ViewModels.Category;
 using WebShop.Admin.ViewModels.Product;
 using WebShop.Data.Implementation;
@@ -9,6 +11,7 @@ using WebShop.Data.Models;
 
 namespace WebShop.Admin.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class ProductController : Controller
     {
         private readonly IProductRepository _productRepository;

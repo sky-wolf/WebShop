@@ -1,0 +1,19 @@
+﻿@using WebShop.Data.Implementation
+
+@inject IProductRepository products
+<div class="col pt-3">
+    <div class="card justify-content-center">
+        <div class="card-header"><strong>Total Products</strong></div>
+
+        <div class="card-body align-content-center">
+            @if (products.GetList().Count != null)
+            {
+                @products.GetList().Count
+            }
+            else
+            {
+                    <em>0</em>
+            }
+        </div>
+    </div>
+</div>

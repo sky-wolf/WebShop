@@ -1,5 +1,40 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
+﻿@model IEnumerable<ApplicationUser>
+
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card justify-content-center">
+            <div class="card-header">
+                <h1>Users</h1>
+                <div class="card-body">
+                    <table class="table table-dark table-striped">
+                        <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>@item.Id</td>
+                                    <td></td>
+                                    <td>@item.Email</td>
+                                    <td>
+                                        <a asp-controller="Role" asp-action="ShowUserRoles" asp-route-id=@item.Id class="btn btn-primary">Show roles</a>
+                                        @if  (ViewBag.Count > 1)
+                                        {
+                                            <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">Delete</a>
+                                        }
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

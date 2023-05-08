@@ -1,11 +1,14 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using System.Data;
 using WebShop.Admin.ViewModels.User;
 using WebShop.Data.Models;
 
 namespace WebShop.Admin.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class RoleController : Controller
     {
         readonly RoleManager<IdentityRole> _roleManager;
@@ -144,7 +147,7 @@ namespace WebShop.Admin.Controllers
             //vm.Name = $"{user.FirstName} {user.LastName}";
             vm.Roles.AddRange(assigned);
             //return View(vm);
-            return PartialView("_ShowUserRolesPartial", vm);
+            return View(vm);
         }
     }
 
